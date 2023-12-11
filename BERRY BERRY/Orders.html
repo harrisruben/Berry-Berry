@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Orders</title>
+<script>
+var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+db.transaction(function (tx) {
+tx.executeSql('CREATE TABLE IF NOT EXISTS Employ(id unique, Name, Salary)');
+});
+function Insert(){
+var id = document.getElementById("tbID").value;
+var Name = document.getElementById("tbName").value;
+var Salary = document.getElementById("tbSalary").value;
+db.transaction(function (tx) {
+tx.executeSql('INSERT INTO Employ(id, Name, Salary) VALUES (?, ?, ?)', [id, Name, Salary]);
+});
+}
+db.transaction(function (tx) {
+tx.executeSql('SELECT * FROM Employ', [], function(tx, results){
+var len = results.rows.length;
+var str = '';
+for(var i = 0; i < len; i++){
+str += "<tr>";
+str += "<td>"+results.rows.item(i).id+"</td>";
+str += "<td>"+results.rows.item(i).Name+"</td>";
+str += "<td>"+results.rows.item(i).Salary+"</td>";
+str += "</tr>";
+}
+document.getElementById("tblGrid").innerHTML += str;
+}, null);
+});
+
+function response() {
+  alert("Order Placed Successfully");
+}
+</script>
+</head>
+<body>
+<p id="table"></p>
+<form id="frm">
+<table>
+<tr>
+<td>user:</td>
+<td><input type="text" id="tbID"/></td>
+</tr>
+<tr>
+<td>address:</td>
+<td><input type="text" id="tbName"/></td>
+</tr>
+<tr>
+<td>order:</td>
+<td><input type="text" id="tbSalary"/></td>
+</tr>
+<tr>
+<td><button id="btnInsert" onclick="Insert();response()">Insert</button></td>
+</tr>
+</table>
+</form>
+<table id='tblGrid' cellpadding='10px' cellspacing="0" border="1">
+<tr style="background-color:black;color:white;font-size:18px;">
+<td>user</td>
+<td>address</td>
+<td>order</td>
+</tr>
+</table>
+</body>
+</html>

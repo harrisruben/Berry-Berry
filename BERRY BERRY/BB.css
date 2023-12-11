@@ -1,0 +1,76 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 20px;
+    color: rgb(20, 20, 20);
+}
+
+/* Title styles */
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* Navigation styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Delivery options styles */
+.Helth {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Order form styles */
+.order {
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Gallery styles */
+.gallery {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: rgb(29, 28, 28);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    color: rgb(31, 30, 30);
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
